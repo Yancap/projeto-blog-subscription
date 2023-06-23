@@ -1,0 +1,5 @@
+{
+  "repositoryName": "ygnews2",
+  "adapter": "@slicemachine/adapter-next",
+  "libraries": ["./slices"]
+}
