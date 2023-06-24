@@ -1,6 +1,10 @@
 .header{
     height: 5rem;
     border-bottom: 1px solid var(--gray-800);
+    img{
+        height: auto;
+        width: 8rem;
+    }
 }
 
 .content{
