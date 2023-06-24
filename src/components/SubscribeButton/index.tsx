@@ -4,10 +4,16 @@ import { signIn, useSession } from 'next-auth/react';
 import { api } from '@/services/api';
 import { getStripeJs } from '@/services/stripe-js';
 import { useRouter } from 'next/router';
+import { Session } from 'next-auth';
 
 interface SubscribeButtonProps{
   priceId: string;
 }
+
+interface SubscribeSession extends Session {
+  userActiveSubscribe: boolean;
+}
+
 //Gerando uma sessão de inscrição do usuário no Stripe
 export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
   
@@ -20,7 +26,7 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
       return
     }
     
-    if (session.userActiveSubscribe) {
+    if ((session as SubscribeSession).userActiveSubscribe) {
       router.push('/post')
       return
     }

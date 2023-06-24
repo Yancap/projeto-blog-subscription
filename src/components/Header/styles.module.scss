@@ -43,8 +43,24 @@
                 background-color: var(--yellow-500);
             }
         }
+        @media screen and (max-width: 640px) {
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            bottom: 0;
+            width: 100vw;
+            margin-left: 0;
+            left: 0;
+            background-color: var(--gray-950);
+        }
     }
     button{
         margin-left: auto;
+    }
+    @media screen and (max-width: 450px) {
+        img{
+            height: auto;
+            width: 7rem;
+        }
     }
 }

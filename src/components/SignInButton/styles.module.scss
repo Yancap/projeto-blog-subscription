@@ -26,4 +26,13 @@
         filter: brightness(0.8);
     }
 
+    @media screen and (max-width: 400px) {
+        padding: 0 1.25rem;
+         svg.closed{
+            display: none;
+        }
+        svg:first-child{
+            margin-right: .5rem;
+        }
+    }
 }

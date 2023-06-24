@@ -20,7 +20,6 @@ export const Header = () => {
               <Link href="/posts" className={asPath === '/posts' ? styles.active : ''} prefetch>
                 <span>Posts</span>
               </Link>
-                
             </nav>
             <SignInButton />
         </div>

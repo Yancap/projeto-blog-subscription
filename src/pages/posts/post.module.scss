@@ -2,6 +2,9 @@
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 2rem;
+    @media screen and (max-width: 640px) {
+        margin-bottom: calc(70px + 2rem);
+    }
 }
 
 .post {
@@ -18,6 +21,11 @@
         margin-top: 1.5rem;
         display: block;
         color: var(--gray-300);
+    }
+    @media screen and (max-width: 350px) {
+        h1{
+            font-size: 3.2rem;
+        }
     }
 }
 

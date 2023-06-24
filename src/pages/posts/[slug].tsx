@@ -55,13 +55,12 @@ export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
   //Pega a sessão do usuário de login no GIT
   const session = await getSession({ req });
   
-  //Pega a inscrição do usuário e verifica se está ativa
-  console.log((session as SessionSlug)?.activeSubscription);
+  
 
   //Pega o Route Params da Rota
   const slug = params?.slug ?? '';
-
-  if ((session as SessionSlug)?.activeSubscription) {
+  //Pega a inscrição do usuário e verifica se está ativa
+  if (!(session as SessionSlug)?.activeSubscription) {
     return {
       redirect: {
         destination: '/posts/preview/'+ slug,

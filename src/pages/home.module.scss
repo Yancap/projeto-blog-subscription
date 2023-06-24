@@ -7,6 +7,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @media screen and (max-width: 740px) {
+        img{
+            display: none;
+        }
+    }
 }
 
 .hero{
@@ -38,5 +43,22 @@
 
     button{
         margin-top: 2.5rem;
+    }
+    @media screen and (max-width: 740px) {
+        margin-bottom: 70px;
+        h1{
+            font-weight: 700;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        
+        h1{
+            font-size: 3.5rem;
+            line-height: 3.5rem;
+        }
+        p{
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+        }
     }
 }

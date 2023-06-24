@@ -2,6 +2,9 @@
     max-width: 1120px;
     margin: 0 auto;
     padding: 0 2rem;
+    @media screen and (max-width: 640px) {
+        margin-bottom: calc(70px + 2rem);
+    }
 }
 
 .posts{
