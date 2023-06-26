@@ -10,7 +10,7 @@ export const authOptions: AuthOptions = {
     GithubProvider({
       //Criar uma aplicação de auth no github para cada projeto!!!
       clientId: process.env.GITHUB_CLIENT_ID as string, //Usa o Id do app de autenticação do GitHb (Configurar no Github)
-      clientSecret: process.env.GITGUB_CLIENT_SECRET as string //Chave privada para autenticação, 
+      clientSecret: process.env.GITHUB_CLIENT_SECRET as string //Chave privada para autenticação, 
     }),
   ],
   callbacks: {
