@@ -9,8 +9,12 @@ export const Header = () => {
   //Hook que pega as informações de rota atual
   const { asPath } = useRouter()
   // asPath >> é a rota atual
+  
   return (
     <header className={styles.header}>
+      <button onClick={() => console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)}>
+
+      </button>
         <div className={styles.content}>
             <img src="/images/logo.svg" alt="ig.news" />
             <nav>
