@@ -70,11 +70,7 @@ export default function PreviewPost({ post }: PreviewPostProps){
 export const getStaticPaths: GetStaticPaths = async () => {
   return {
     //Determina quais páginas será geradas nas Build e quais dependeram do acesso do Primeiro Usuário
-    paths: [{
-      params: {
-        slug: 'typescript-por-tras-do-superset-de-javascript' //Nesse caso determina que apenas a pagina com esse determinado slug será gerada
-      }
-    }], 
+    paths: [], 
     fallback: 'blocking' //Fallback > true: Conteúdo carregado em Client Side, false: Retornar 404 se caso o post não for carregado, blocking: carrega o conteúdo em ServeSide
   }
 }

@@ -13,6 +13,7 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET as string //Chave privada para autenticação, 
     }),
   ],
+  secret: process.env.NEXT_PUBLIC_SECRET,
   callbacks: {
     //
     async session({session}){

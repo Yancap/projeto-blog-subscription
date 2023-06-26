@@ -12,9 +12,6 @@ export const Header = () => {
   
   return (
     <header className={styles.header}>
-      <button onClick={() => console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY)}>
-
-      </button>
         <div className={styles.content}>
             <img src="/images/logo.svg" alt="ig.news" />
             <nav>
