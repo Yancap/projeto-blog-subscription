@@ -18,6 +18,7 @@ interface SubscribeSession extends Session {
 export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
   
   const { data: session } = useSession()
+  
   const router = useRouter()
   async function handleSubscribe(){
     //Caso o usuário não esteja logado no Github, redirecione para o usuário logar
@@ -27,7 +28,7 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
     }
     
     if ((session as SubscribeSession).userActiveSubscribe) {
-      router.push('/post')
+      router.push('/posts')
       return
     }
 

@@ -8,15 +8,15 @@ export async function saveSubscription(subscriptionId: string, customerId: strin
     Busca o usuario no banco do FaunaDB com o CustomerID (stripe_customer_id) 
 */  
     const userRef = await fauna.query(
-    // Retorna o campo 'ref' do usuário com base no customer_id
-    query.Select(
-        "ref",
-        query.Get(
-            query.Match(
-                query.Index('user_by_stripe_customer_id'), customerId
+        // Retorna o campo 'ref' do usuário com base no customer_id
+        query.Select(
+            "ref",
+            query.Get(
+                query.Match(
+                    query.Index('user_by_stripe_customer_id'), customerId
+                )
             )
         )
-    )
     )
     
     //Busca todos os dados a subscription do usuário com base no Id da inscrição
@@ -35,7 +35,7 @@ export async function saveSubscription(subscriptionId: string, customerId: strin
         await fauna.query(
             query.Create(
                 query.Collection('subscriptions'),
-                { data: subscriptionData}
+                { data: subscriptionData }
             )
         )
     else

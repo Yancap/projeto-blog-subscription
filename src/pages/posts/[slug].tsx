@@ -1,11 +1,11 @@
 import { getPrismicClient } from '@/services/prismic'
 import { GetServerSideProps } from 'next'
-import { getSession } from 'next-auth/react'
 import styles from './post.module.scss'
 import Head from 'next/head'
 import { RichText } from 'prismic-dom'
 import React from 'react'
-import { Session } from 'next-auth'
+import { Session, getServerSession } from 'next-auth'
+import { authOptions } from '../api/auth/[...nextauth]'
 
 
 interface PostProps {
@@ -51,10 +51,9 @@ interface SessionSlug extends Session{
 }
 
 //Função que vai gerar o texto em Server Side
-export const getServerSideProps: GetServerSideProps = async ({req, params}) => {
+export const getServerSideProps: GetServerSideProps = async ({req, res, params}) => {
   //Pega a sessão do usuário de login no GIT
-  const session = await getSession({ req });
-  
+  const session = await getServerSession(req, res, authOptions);
   
 
   //Pega o Route Params da Rota

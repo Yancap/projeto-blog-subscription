@@ -19,6 +19,7 @@ export const authOptions: AuthOptions = {
     async session({session}){
       const email = session.user?.email ?? ''
       //Busca no FaunaDB a inscrição ativa do usuário
+      
       try{
         const userActiveSubscribe = await fauna.query(
           query.Get(

@@ -23,6 +23,7 @@ interface Content {
 }
 
 type Func = (content: RTNode) => Content
+
 export default function Posts ({posts}: PostsProps){
   return (
     <>

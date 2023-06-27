@@ -2,7 +2,9 @@ import { fauna } from "@/services/fauna";
 import { stripe } from "@/services/stripe";
 import { query } from "faunadb";
 import { NextApiRequest, NextApiResponse } from "next";
+import { getServerSession } from "next-auth";
 import { getSession } from "next-auth/react";
+import { authOptions } from "./auth/[...nextauth]";
 
 //Informações a serem retornadas pelo BD
 interface User {
@@ -19,8 +21,9 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
     //Aceita apenas requisição POST
     if(request.method === "POST") {
         //Pega os cookies da requisição onde está armazenado os dados do usuário do Auth do Github
-        const session = await getSession({ req: request })
-     
+        const session = await getServerSession(request, response, authOptions)
+        
+        
         //Pega as informações do usuário no Banco de Dados
         const user = await fauna.query<User>(
             query.Get(
