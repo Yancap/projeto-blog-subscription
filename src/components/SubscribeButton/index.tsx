@@ -27,7 +27,6 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
       signIn('github')
       return
     }
-    
     //Verifica se o usuário tem uma inscrição ativa e redireciona para pagina de post
     if ((session as SubscribeSession).activeSubscription) {
       router.push('/posts')
@@ -37,13 +36,11 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
     try { 
       //Envia a requisição de inscrição para rota 
       const response = await api.post('/subscribe')
-      console.log(response);
       
       //Pega o ID da Session do Stripe que foi criada
       const { sessionId } = response.data
 
       const stripe = await getStripeJs()
-      console.log(stripe);
       
       //Redireciona o usuário para a inscrição do produto no Stripe com base no seu ID de Session
       await stripe?.redirectToCheckout({sessionId})

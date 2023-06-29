@@ -46,8 +46,8 @@ export default function Post({ post }: PostProps){
   )
 }
 
-interface SessionSlug extends Session{
-  activeSubscription: string;
+interface SessionSlug extends Session {
+  activeSubscription: object | null;
 }
 
 //Função que vai gerar o texto em Server Side
@@ -55,7 +55,6 @@ export const getServerSideProps: GetServerSideProps = async ({req, res, params})
   //Pega a sessão do usuário de login no GIT
   const session = await getServerSession(req, res, authOptions);
   
-
   //Pega o Route Params da Rota
   const slug = params?.slug ?? '';
   //Pega a inscrição do usuário e verifica se está ativa
