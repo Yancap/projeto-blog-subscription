@@ -70,7 +70,7 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             
         }
 
-        response.status(200).json({test1: process.env.STRIPE_SUCCESS_URL, test2: process.env.STRIPE_CANCEL_URL})
+        
         //Cria a sessão para cada usuario, com base em seu email e o ID Stripe unico
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             customer: customerId, //ID Stripe do usuário que está comprando 
