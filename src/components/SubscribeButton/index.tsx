@@ -11,14 +11,13 @@ interface SubscribeButtonProps{
 }
 
 interface SubscribeSession extends Session {
-  activeSubscribe: boolean;
+  activeSubscription: object | null;
 }
 
 //Gerando uma sessão de inscrição do usuário no Stripe
 export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
   
   const { data: session } = useSession()
-  
   
   
   const router = useRouter()
@@ -29,7 +28,8 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
       return
     }
     
-    if ((session as SubscribeSession).activeSubscribe) {
+    //Verifica se o usuário tem uma inscrição ativa e redireciona para pagina de post
+    if ((session as SubscribeSession).activeSubscription) {
       router.push('/posts')
       return
     }
