@@ -41,8 +41,8 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
                 )
             )
         )
+
         
-        return response.status(200).json({user})
         //Atribui o ID Stripe a Variável
         let customerId = user.data.stripe_customer_id
 
@@ -64,8 +64,10 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
                     }
                 )
             )
+            
             //Reatribui o ID Stripe a variável
             customerId = stripeCustomer.id
+            return response.status(200).json({customerId})
         }
 
         
