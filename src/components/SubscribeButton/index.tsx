@@ -43,6 +43,8 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
       const { sessionId } = response.data
 
       const stripe = await getStripeJs()
+      console.log(stripe);
+      
       //Redireciona o usuário para a inscrição do produto no Stripe com base no seu ID de Session
       await stripe?.redirectToCheckout({sessionId})
     } catch (error) {

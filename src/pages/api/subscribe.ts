@@ -67,10 +67,10 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             
             //Reatribui o ID Stripe a variável
             customerId = stripeCustomer.id
-            return response.status(200).json({customerId})
+            
         }
 
-        return response.status(200).json({customerId})
+        
         //Cria a sessão para cada usuario, com base em seu email e o ID Stripe unico
         const stripeCheckoutSession = await stripe.checkout.sessions.create({
             customer: customerId, //ID Stripe do usuário que está comprando 
