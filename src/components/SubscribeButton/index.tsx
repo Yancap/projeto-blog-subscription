@@ -37,6 +37,8 @@ export const SubscribeButton = ({priceId}: SubscribeButtonProps) => {
     try { 
       //Envia a requisição de inscrição para rota 
       const response = await api.post('/subscribe')
+      console.log(response);
+      
       //Pega o ID da Session do Stripe que foi criada
       const { sessionId } = response.data
 
