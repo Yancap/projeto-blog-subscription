@@ -81,8 +81,8 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
             ],
             mode: 'subscription',
             allow_promotion_codes: true,
-            success_url: process.env.STRIPE_SUCCESS_URL as string, //Redireciona o Usuário para esse rota em caso de sucesso
-            cancel_url: process.env.STRIPE_CANCEL_URL as string //Redireciona o Usuario para esse rota em caso de cancelamento ou fracasso
+            success_url: "https://ygnews.netlify.app/posts", //Redireciona o Usuário para esse rota em caso de sucesso
+            cancel_url: "https://ygnews.netlify.app/" //Redireciona o Usuario para esse rota em caso de cancelamento ou fracasso
         })
         return response.status(200).json({sessionId: stripeCheckoutSession.id})
     } else {
