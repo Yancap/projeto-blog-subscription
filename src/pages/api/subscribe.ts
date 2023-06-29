@@ -26,11 +26,11 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
     //Aceita apenas requisição POST
     if(request.method === "POST") {
         //Pega os cookies da requisição onde está armazenado os dados do usuário do Auth do Github
-        console.log("teste 1", authOptions);
+        
         
         const session = await getServerSession(request, response, authOptions)
-        return response.status(200).json({session})
-        console.log("teste 2", session);
+        
+        
         
         //Pega as informações do usuário no Banco de Dados
         const user = await fauna.query<User>(
@@ -41,6 +41,8 @@ export default async (request: NextApiRequest, response: NextApiResponse) => {
                 )
             )
         )
+        
+        return response.status(200).json({user})
         //Atribui o ID Stripe a Variável
         let customerId = user.data.stripe_customer_id
 
